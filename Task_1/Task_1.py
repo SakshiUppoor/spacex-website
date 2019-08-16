@@ -4,7 +4,7 @@ input_string = input()
 #Converting string to a list
 binary_list = input_string.split(',')
 
-#Creating a list to store output 
+#Creating a list to store output  
 output_list = []
 
 #Iterating through all numbers in the list
