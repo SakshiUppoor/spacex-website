@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/base.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/home.css' %}" />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    
+    {% block css %}
+    {% endblock css %}
+</head>
+<body>
+    <section id="sidenav">
+    {% block sidenav %}
+    {% endblock sidenav %}
+    </section>
+    <main>
+        <div class="info-window">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </main>
+</body>
+{% block scripts %}
+{% endblock scripts %}
+</html>

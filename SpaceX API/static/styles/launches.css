@@ -1,0 +1,53 @@
+main {
+    display:block;
+}
+
+#list {
+    color: #fff;
+    padding: 2em;
+    padding-top: 0;
+}
+
+#list h1 {
+    font-size: 2em;
+}
+.list {
+    overflow-y: scroll;
+    height: 75vh;
+    padding: 0 2em;
+}
+
+.outer > a, #outer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-style: normal;
+    color: #fff;
+    text-decoration: none;
+}
+
+.col2 {
+    text-align: right;
+}
+
+#head {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.table > .outer {
+    background: rgb(71, 67, 67);
+    margin: 0.5em 0;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    text-decoration: none;
+    color: #fff;
+}
+
+.selected {
+    background: rgb(91, 185, 223) !important;
+}
+
+.desc {
+    color: rgb(110, 110, 110);
+    font-style: italic;
+}
