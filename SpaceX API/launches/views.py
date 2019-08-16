@@ -38,8 +38,6 @@ def updateLaunches():
         new_launch.update({"details":item["details"]})
         
         new_launch.update({"launch_success":item["launch_success"]})
-    
-        launch_details.append(str(new_launch))
 
         if Launches.objects.filter(flight_number=new_launch.get("flight_number")).exists():
             l = Launches.objects.filter(flight_number=new_launch.get("flight_number")).update(**new_launch)
@@ -69,9 +67,6 @@ def updateMissions():
         new_mission.update({"website":item["website"]})
 
         new_mission.update({"description":item["description"]})
-    
-        mission_details.append(str(new_mission))
-
         if Mission.objects.filter(mission_id=new_mission.get("mission_id")).exists():
             m = Mission.objects.filter(mission_id=new_mission.get("mission_id")).update(**new_mission)
         else:
@@ -102,8 +97,6 @@ def updateCores():
         new_core.update({"mission_flight":item["missions"][0]["flight"]})
 
         new_core.update({"details":item["details"]})
-    
-        core_details.append(str(new_core))
 
         if Core.objects.filter(core_serial=new_core.get("core_serial")).exists():
             m = Core.objects.filter(core_serial=new_core.get("core_serial")).update(**new_core)
@@ -140,8 +133,6 @@ def updateRockets():
 
         first_flight = datetime.strptime(item["first_flight"],"%Y-%m-%d")
         new_rocket.update({"first_flight":first_flight})
-        
-        rocket_details.append(str(new_rocket))
 
         if Rocket.objects.filter(rocket_id=new_rocket.get("rocket_id")).exists():
             m = Rocket.objects.filter(rocket_id=new_rocket.get("rocket_id")).update(**new_rocket)
@@ -149,185 +140,9 @@ def updateRockets():
             m = Rocket(**new_rocket)
             m.save()
 
-def details(request):
-    response = requests.get(base_link + "launches")
-
-    json_object = response.json()
-
-    launch_details = []
-
-    for item in json_object:
-        
-        new_launch = {}
-            
-        new_launch.update({"flight_number":item["flight_number"]})
-
-        timestamp = item["launch_date_unix"]
-        dt_object = datetime.strftime(datetime.fromtimestamp(timestamp),"%d-%B-%Y")
-        new_launch.update({"launch_date":dt_object})
-
-        new_launch.update({"rocket_name":item["rocket"]["rocket_name"]})
-
-        new_launch.update({"mission_patch_link":item["links"]["mission_patch_small"]})
-
-        new_launch.update({"reddit_launch":item["links"]["reddit_launch"]})
-        
-        new_launch.update({"video_link":item["links"]["video_link"]})
-        
-        new_launch.update({"wikipedia":item["links"]["wikipedia"]})
-        
-        new_launch.update({"article_link":item["links"]["article_link"]})
-        
-        new_launch.update({"details":item["details"]})
-        
-        new_launch.update({"launch_success":item["launch_success"]})
-    
-        launch_details.append(str(new_launch))
-
-    response = requests.get(base_link + "missions")
-
-    json_object = response.json()
-
-    mission_details = []
-
-    for item in json_object:
-        
-        new_mission = {}
-            
-        new_mission.update({"mission_name":item["mission_name"]})
-
-        new_mission.update({"mission_id":item["mission_id"]})
-
-        new_mission.update({"wikipedia":item["wikipedia"]})
-        
-        new_mission.update({"twitter":item["twitter"]})
-
-        new_mission.update({"website":item["website"]})
-
-        new_mission.update({"description":item["description"]})
-    
-        mission_details.append(str(new_mission))
-
-    
-    response = requests.get(base_link + "cores")
-
-    json_object = response.json()
-
-    core_details = []
-
-    for item in json_object:
-        
-        new_core = {}
-            
-        new_core.update({"core_serial":item["core_serial"]})
-
-        timestamp = item["original_launch_unix"]
-
-        if timestamp != None:
-            dt_object = datetime.strftime(datetime.fromtimestamp(timestamp),"%d-%B-%Y")
-        new_core.update({"launch_date":dt_object})
-
-        new_core.update({"mission_name":item["missions"][0]["name"]})
-
-        new_core.update({"mission_flight":item["missions"][0]["flight"]})
-
-        new_core.update({"details":item["details"]})
-    
-        core_details.append(str(new_core))
-
-    response = requests.get(base_link + "rockets")
-
-    json_object = response.json()
-
-    rocket_details = []
-
-    for item in json_object:
-        
-        new_rocket = {}
-            
-        new_rocket.update({"id":item["id"]})
-            
-        new_rocket.update({"active":item["active"]})
-            
-        new_rocket.update({"cost_per_launch":item["cost_per_launch"]})
-            
-        new_rocket.update({"country":item["country"]})
-            
-        new_rocket.update({"wikipedia":item["wikipedia"]})
-            
-        new_rocket.update({"rocket_id":item["rocket_id"]})
-            
-        new_rocket.update({"description":item["description"]})
-            
-        new_rocket.update({"rocket_name":item["rocket_name"]})
-
-        new_rocket.update({"first_flight":item["first_flight"]})
-        
-        rocket_details.append(str(new_rocket))
-
-    return HttpResponse("<h1>Launches Details</h1>"+"<br><br>".join(launch_details)+"<h1>Mission Details</h1>"+"<br><br>".join(mission_details)+"<h1>Core Details</h1>"+"<br><br>".join(core_details)+"<h1>Rocket Details</h1>"+"<br><br>".join(rocket_details))
-
 def home(request):
-    response = requests.get(base_link + "launches/latest")
-
-    json_object = response.json()
-
-    item = json_object 
-
-    latest_launch = {}
-            
-    latest_launch.update({"flight_number":item["flight_number"]})
-
-    timestamp = item["launch_date_unix"]
-    dt_object = datetime.strftime(datetime.fromtimestamp(timestamp),"%d-%B-%Y")
-    latest_launch.update({"launch_date":dt_object})
-
-    latest_launch.update({"rocket_name":item["rocket"]["rocket_name"]})
-
-    latest_launch.update({"mission_patch_link":item["links"]["mission_patch_small"]})
-
-    latest_launch.update({"reddit_launch":item["links"]["reddit_launch"]})
-        
-    latest_launch.update({"video_link":item["links"]["video_link"]})
-        
-    latest_launch.update({"wikipedia":item["links"]["wikipedia"]})
-        
-    latest_launch.update({"article_link":item["links"]["article_link"]})
-        
-    latest_launch.update({"details":item["details"]})
-        
-    latest_launch.update({"launch_success":item["launch_success"]})
-    
-    response = requests.get(base_link + "launches/next")
-
-    json_object = response.json()
-
-    item = json_object
-
-    next_launch = {}
-            
-    next_launch.update({"flight_number":item["flight_number"]})
-
-    timestamp = item["launch_date_unix"]
-    dt_object = datetime.strftime(datetime.fromtimestamp(timestamp),"%d-%B-%Y")
-    next_launch.update({"launch_date":dt_object})
-
-    next_launch.update({"rocket_name":item["rocket"]["rocket_name"]})
-
-    next_launch.update({"mission_patch_link":item["links"]["mission_patch_small"]})
-
-    next_launch.update({"reddit_launch":item["links"]["reddit_launch"]})
-        
-    next_launch.update({"video_link":item["links"]["video_link"]})
-        
-    next_launch.update({"wikipedia":item["links"]["wikipedia"]})
-        
-    next_launch.update({"article_link":item["links"]["article_link"]})
-        
-    next_launch.update({"details":item["details"]})
-        
-    next_launch.update({"launch_success":item["launch_success"]})
-    
+    latest_launch = Launches.objects.filter(launch_date__lte=datetime.now()).last()
+    next_launch = Launches.objects.filter(launch_date__gte=datetime.now()).first()
     context = {
         'latest': latest_launch,
         'next': next_launch,
