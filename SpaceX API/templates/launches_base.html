@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Launches
+{% endblock title %}
+
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/launches.css' %}" />
+{% endblock css %}
+    
+{% block sidenav %}
+<div class="nav">
+    <img class="menu-icon" src="{% static '/images/menu-icon.svg' %}">
+<nav>
+<section id="category-container">
+    <div class="sec">Welcome to</div>
+    <div class="pri">Space X</div>
+        <p>Launches</p>
+        <section id="categories">
+            <a href="{% url 'main:allLaunches' %}"><div class="category"><img class=" pink" src="{% static 'images/launch-icon.svg' %}">All</div></a>
+            <a href="{% url 'main:launchesPast' %}"><div class="category"><img class=" blue" src="{% static 'images/rocket-icon.svg' %}">Past</div></a>
+            <a href="{% url 'main:home' %}"><div class="category "><img class="purple" src="{% static 'images/core-icon.svg' %}">Latest</div></a>
+            <a href="{% url 'main:launchesUpcoming' %}"><div class="category"><img class=" teal" src="{% static 'images/mission-icon.svg' %}">Upcoming</div></a>
+        </section>
+    </section>
+</nav>
+<section id="list">
+<div class="list">
+<h1>{{category|title}} Launches</h1>
+<div id="outer" class = "outer">
+<div id="head" class="col1">Flight No.</div>
+<div id="head" class="col2">Rocket Name</div>
+</div>
+<div class="table">
+{% for launch in launch_details %}
+    <div class = "outer {% if launch.flight_number == no %}selected{% endif %}">
+    <a href="{% url 'main:launches' no=launch.flight_number category=category %}">
+    <div class="col1">{{launch.flight_number}}</div>
+    <div class="col2">{{launch.rocket_name}}</div>
+    </a></div>
+{% endfor %}
+</div>
+</div>
+
+</section>
+</div>
+{% endblock sidenav %} 
+{% block content %}
+{% endblock content %} 
+
+{% block scripts %}
+<script>
+        (function() {
+            var menu = document.querySelector('nav'),
+            list = document.getElementById('list'),
+                menulink = document.querySelector('.menu-icon');
+        
+            menulink.addEventListener('click',function(e) {
+                menu.classList.toggle('active');
+                    e.preventDefault();
+                list.classList.toggle('disable');
+                    e.preventDefault();
+            });
+        })();
+</script>
+{% endblock scripts %}

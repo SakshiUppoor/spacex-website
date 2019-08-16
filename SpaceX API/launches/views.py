@@ -122,3 +122,156 @@ def details(request):
         rocket_details.append(str(new_rocket))
 
     return HttpResponse("<h1>Launches Details</h1>"+"<br><br>".join(launch_details)+"<h1>Mission Details</h1>"+"<br><br>".join(mission_details)+"<h1>Core Details</h1>"+"<br><br>".join(core_details)+"<h1>Rocket Details</h1>"+"<br><br>".join(rocket_details))
+
+def home(request):
+    response = requests.get(base_link + "launches/latest")
+
+    json_object = response.json()
+
+    item = json_object 
+
+    latest_launch = {}
+            
+    latest_launch.update({"flight_number":item["flight_number"]})
+
+    timestamp = item["launch_date_unix"]
+    dt_object = datetime.strftime(datetime.fromtimestamp(timestamp),"%d-%B-%Y")
+    latest_launch.update({"launch_date":dt_object})
+
+    latest_launch.update({"rocket_name":item["rocket"]["rocket_name"]})
+
+    latest_launch.update({"mission_patch_link":item["links"]["mission_patch_small"]})
+
+    latest_launch.update({"reddit_launch":item["links"]["reddit_launch"]})
+        
+    latest_launch.update({"video_link":item["links"]["video_link"]})
+        
+    latest_launch.update({"wikipedia":item["links"]["wikipedia"]})
+        
+    latest_launch.update({"article_link":item["links"]["article_link"]})
+        
+    latest_launch.update({"details":item["details"]})
+        
+    latest_launch.update({"launch_success":item["launch_success"]})
+    
+    response = requests.get(base_link + "launches/next")
+
+    json_object = response.json()
+
+    item = json_object
+
+    next_launch = {}
+            
+    next_launch.update({"flight_number":item["flight_number"]})
+
+    timestamp = item["launch_date_unix"]
+    dt_object = datetime.strftime(datetime.fromtimestamp(timestamp),"%d-%B-%Y")
+    next_launch.update({"launch_date":dt_object})
+
+    next_launch.update({"rocket_name":item["rocket"]["rocket_name"]})
+
+    next_launch.update({"mission_patch_link":item["links"]["mission_patch_small"]})
+
+    next_launch.update({"reddit_launch":item["links"]["reddit_launch"]})
+        
+    next_launch.update({"video_link":item["links"]["video_link"]})
+        
+    next_launch.update({"wikipedia":item["links"]["wikipedia"]})
+        
+    next_launch.update({"article_link":item["links"]["article_link"]})
+        
+    next_launch.update({"details":item["details"]})
+        
+    next_launch.update({"launch_success":item["launch_success"]})
+    
+    context = {
+        'latest': latest_launch,
+        'next': next_launch,
+    }
+    return render(request,"home.html",context)
+
+def allLaunches(request):
+    return HttpResponseRedirect(reverse('main:launches',kwargs={'no':1,'category':"all"}))
+
+
+def launchesPast(request):
+    return HttpResponseRedirect(reverse('main:launches',kwargs={'no':1,'category':"past"}))
+    
+
+def launchesUpcoming(request):
+    
+    return HttpResponseRedirect(reverse('main:launches',kwargs={'no':1,'category':"upcoming"}))
+
+def launches(request,category,no):
+
+    if category=="all":
+        response = requests.get(base_link + "launches")
+
+        json_object = response.json()
+
+        launch_details = []
+
+        for item in json_object:
+            
+            new_launch = {}
+                
+            new_launch.update({"flight_number":item["flight_number"]})
+
+            new_launch.update({"rocket_name":item["rocket"]["rocket_name"]})
+        
+            launch_details.append(new_launch)
+    
+    else:
+        response = requests.get(base_link + "launches/" + category)
+
+        json_object = response.json()
+
+        launch_details = []
+
+        for item in json_object:
+            
+            new_launch = {}
+                
+            new_launch.update({"flight_number":item["flight_number"]})
+
+            new_launch.update({"rocket_name":item["rocket"]["rocket_name"]})
+
+            launch_details.append(new_launch)
+    
+    response = requests.get(base_link + "launches/" + str(no))
+
+    json_object = response.json()
+
+    item = json_object 
+
+    current_launch = {}
+            
+    current_launch.update({"flight_number":item["flight_number"]})
+
+    timestamp = item["launch_date_unix"]
+    dt_object = datetime.strftime(datetime.fromtimestamp(timestamp),"%d-%B-%Y")
+    current_launch.update({"launch_date":dt_object})
+
+    current_launch.update({"rocket_name":item["rocket"]["rocket_name"]})
+
+    current_launch.update({"mission_patch_link":item["links"]["mission_patch_small"]})
+
+    current_launch.update({"reddit_launch":item["links"]["reddit_launch"]})
+        
+    current_launch.update({"video_link":item["links"]["video_link"]})
+        
+    current_launch.update({"wikipedia":item["links"]["wikipedia"]})
+        
+    current_launch.update({"article_link":item["links"]["article_link"]})
+        
+    current_launch.update({"details":item["details"]})
+        
+    current_launch.update({"launch_success":item["launch_success"]})
+    
+    context = {
+        'launch_details': launch_details,
+        'current':current_launch,
+        'no':no,
+        'category':category,
+    }
+    return render(request,"launches.html",context)
