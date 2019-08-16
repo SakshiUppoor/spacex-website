@@ -1,0 +1,22 @@
+{% extends 'cores_base.html' %}
+{% load static %}
+{% block content %}
+    <header id="main">
+        <div class="title"><h2>{{current.mission_name}}</h2>
+        </div>
+    <div class="launchdate"><h4>
+    {{current.launch_date}}</h4>
+    </div>
+    </header>
+<div class="wrapper">
+<div></div>
+    </div>
+    <div class="info-class"><h4>Mission Flight</h4> {{ current.mission_flight }}</div><br>
+    <div class="desc">
+        {% if current.details != None %}
+        {{current.details}}
+        {% else %}
+        No description provided.
+        {% endif %}
+    </div>
+{% endblock content %}

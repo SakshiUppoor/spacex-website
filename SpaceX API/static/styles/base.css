@@ -121,7 +121,7 @@ nav {
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(147, 124, 202); 
+    background: rgb(74, 66, 184);
     border-radius: 5em;
   }
   

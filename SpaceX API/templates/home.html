@@ -12,14 +12,14 @@
 {% block sidenav %}
 
 <section id="category-container">
-    <div class="sec">Welcome to</div>
-    <div class="pri">Space X</div>
-        <p>Launches</p>
+    <a href="{% url 'main:home' %}"><div class="sec">Welcome to</div>
+    <div class="pri">Space X</div></a>
+        <p>Categories</p>
         <section id="categories">
-            <a href="{% url 'main:allLaunches' %}"><div class="category"><img class=" pink" src="{% static 'images/launch-icon.svg' %}">All</div></a>
-            <a href="{% url 'main:launchesPast' %}"><div class="category"><img class=" blue" src="{% static 'images/rocket-icon.svg' %}">Past</div></a>
-            <a href="{% url 'main:home' %}"><div class="category "><img class="purple" src="{% static 'images/core-icon.svg' %}">Latest</div></a>
-            <a href="{% url 'main:launchesUpcoming' %}"><div class="category"><img class=" teal" src="{% static 'images/mission-icon.svg' %}">Upcoming</div></a>
+            <a href="{% url 'main:allLaunches' %}"><div class="category"><img class=" pink" src="{% static 'images/launch-icon.svg' %}">Launches</div></a>
+            <a href="{% url 'main:allRockets' %}"><div class="category"><img class=" blue" src="{% static 'images/rocket-icon.svg' %}">Rockets</div></a>
+            <a href="{% url 'main:allCores' %}"><div class="category "><img class="purple" src="{% static 'images/core-icon.svg' %}">Cores</div></a>
+            <a href="{% url 'main:allMissions' %}"><div class="category"><img class=" teal" src="{% static 'images/mission-icon.svg' %}">Missions</div></a>
         </section>
     </section>
 {% endblock sidenav %}  

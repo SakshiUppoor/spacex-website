@@ -10,10 +10,10 @@ main {
 
 #list h1 {
     font-size: 2em;
+    margin: 0;
+    display: inline-block;
 }
 .list {
-    overflow-y: scroll;
-    height: 75vh;
     padding: 0 2em;
 }
 
@@ -50,4 +50,61 @@ main {
 .desc {
     color: rgb(110, 110, 110);
     font-style: italic;
+}
+
+.button, select {
+    border: none;
+    color: rgb(201, 194, 194);
+    background: rgb(74, 66, 184);
+    height: 2em;
+    padding: 0 1em;
+    border-radius: 1em;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin: 1em 0;
+}
+
+.button:hover{
+    color: #fff;
+}
+
+.table>.outer:hover {
+    background: rgb(90, 163, 192);
+    color: #fff;
+    -webkit-box-shadow: 0px 0px 23px 0px rgba(93,184,223,1);
+    -moz-box-shadow: 0px 0px 23px 0px rgba(93,184,223,1);
+    box-shadow: 0px 0px 23px 0px rgba(93,184,223,0.5);
+}
+select {
+    color: #fff;
+    background: rgb(97, 92, 92);
+}
+
+.table {
+    overflow-y: scroll;
+    height: 55vh;
+    padding-right: 0.5em;
+}
+
+#refresh {
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+}
+
+#filter,  {
+    grid-gap: 3em;
+}
+.maintitle {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.launchdate {
+    text-align: right;
 }

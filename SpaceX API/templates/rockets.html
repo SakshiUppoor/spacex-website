@@ -1,0 +1,46 @@
+{% extends 'rockets_base.html' %}
+{% load static %}
+{% block content %}
+    <header>
+        <div class="title"><h2>{{current.rocket_name}}</h2>
+        {% if current.active == "True" %}
+            <div class="success">Active</div>
+        {% else %}
+            <div class="failure">Inactive</div>
+        {% endif %}
+        </div>
+        <h4>
+            {{current.first_flight}}
+        </h4>
+    </header>
+<div class="wrapper">
+<div></div>
+        <div class="links">
+        
+            {% if current.reddit_launch != None %}
+            <a target="_blank" href="{{current.reddit_launch}}"><ion-icon name="logo-reddit"></ion-icon></a>
+            {% endif %}
+            {% if current.video_link != None %}
+            <a target="_blank" href="{{current.video_link}}"><ion-icon name="logo-youtube"></ion-icon></a>
+            {% endif %}
+            {% if current.article_link != None %}
+            <a target="_blank" href="{{current.article_link}}"><ion-icon name="laptop"></ion-icon></a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="info-class"><h4>ID</h4> {{ current.rocket_number }}</div><br>
+    <div class="info-class"><h4>Country</h4> {{ current.country }}</div><br>
+    <div class="info-class"><h4>Cost/launch</h4> ${{ current.cost_per_launch }}</div><br>
+    <div class="main-info">
+    <div>
+    <div class="desc">
+        {% if current.description != None %}
+        {{current.description}}
+        {% else %}
+        No description available.
+        {% endif %}
+    </div>
+    <a target="_blank" href="{{current.wikipedia}}"><button class="read">Read more</button></a></div>
+    {% if current.mission_patch_link != None %}<div class="patch"><img src="{{current.mission_patch_link}}"<br>Mission patch</div>{% endif %}
+    </div>
+{% endblock content %}
