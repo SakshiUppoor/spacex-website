@@ -24,5 +24,6 @@
         No description provided.
         {% endif %}
     </div>
-    <a target="_blank" href="{{current.wikipedia}}"><button class="read">Read more</button></a>
+    {% if current.wikipedia != None %}
+    <a target="_blank" href="{{current.wikipedia}}"><button class="read">Read more</button></a>{% endif %}
 {% endblock content %}

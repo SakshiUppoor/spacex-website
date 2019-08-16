@@ -50,7 +50,8 @@
     <div class="info-class"><h4>Flight No</h4> {{ latest.flight_number }}</div>
     <div class="desc">
         {{latest.details}}
-    <a target="_blank" href="{{latest.wikipedia}}"><button class="read">Read more</button></a>
+    {% if current.wikipedia != None %}
+    <a target="_blank" href="{{latest.wikipedia}}"><button class="read">Read more</button></a>{% endif %}
     </div>
     <header>
         <h2>Upcoming Launch</h2>
@@ -80,6 +81,7 @@
     <div class="info-class"><h4>Flight No</h4> {{ next.flight_number }}</div>
     <div class="desc">
         {{next.details}}
-    <a target="_blank" href="{{next.wikipedia}}"><button class="read">Read more</button></a>
+    {% if next.wikipedia != None %}
+    <a target="_blank" href="{{next.wikipedia}}"><button class="read">Read more</button></a>{% endif %}
     </div>
 {% endblock content %}

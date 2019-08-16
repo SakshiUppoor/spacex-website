@@ -40,7 +40,8 @@
         No description available.
         {% endif %}
     </div>
-    <a target="_blank" href="{{current.wikipedia}}"><button class="read">Read more</button></a></div>
+    {% if current.wikipedia != None %}
+    <a target="_blank" href="{{current.wikipedia}}"><button class="read">Read more</button></a>{% endif %}</div>
     {% if current.mission_patch_link != None %}<div class="patch"><img src="{{current.mission_patch_link}}"<br>Mission patch</div>{% endif %}
     </div>
 {% endblock content %}
