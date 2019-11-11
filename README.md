@@ -1,48 +1,46 @@
-# Unicode Backend
+<br />
+<p align="center">
+  <a href="https://github.com/SakshiUppoor/unicode-backend">
+    <img src="https://imgur.com/H2tVlcj.png" alt="Logo" width="80" height="80">
+  </a>
 
-This repo is divided into 2 parts: [Task 1](https://github.com/SakshiUppoor/unicode-backend/blob/master/Task_1/Task_1.py) & [Django Project using Space X API](https://github.com/SakshiUppoor/unicode-backend/tree/master/SpaceX%20API)
+  <h3 align="center">Space X Website</h3>
 
-## Task 1
+  <p align="center">
+    Read about all the SpaceX launches in one place!
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="http://spacex-web-api.herokuapp.com/">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</p>
 
-Command Line execution:
+## About the Project
+![Product Name Screen Shot](https://imgur.com/FJdOt7y.png?1)
+![Product Name Screen Shot](https://i.imgur.com/6W8p9Xq.png?1)
 
-![CMD execution](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dd76739-02bc-49d4-a98e-4d2bfa759d92/dde6nky-5da2e60b-39d6-48cc-8be7-22869db23894.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkZDc2NzM5LTAyYmMtNDlkNC1hOThlLTRkMmJmYTc1OWQ5MlwvZGRlNm5reS01ZGEyZTYwYi0zOWQ2LTQ4Y2MtOGJlNy0yMjg2OWRiMjM4OTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.THZSL_xfw94JR2M-pybc9QO66o3CVNix47R3HjXw-LQ)
+### Pages
+* Home(Latest & upcoming launch)
+* Launches(Upcoming, Past, All)
+* Rockets
+* Cores
+* Missions
 
-## Task 2
+### Features
+* Filter through upcoming and past launches
+* Refresh button to check for updates
 
-Fetched data about
-- Launches
-- Rockets
-- Missions
-- Cores
+### Built With
+* [Django](https://docs.djangoproject.com/en/2.2/) - The framework used
+* [SpaceX API](https://docs.spacexdata.com/?version=latest) - The API used
+* [Inkscape](https://inkscape.org/) - Design software for icons
 
 
+## License
 
-![Launches](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dd76739-02bc-49d4-a98e-4d2bfa759d92/dde6nkr-b2d29112-57cf-4057-9d08-c6c4433b325b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkZDc2NzM5LTAyYmMtNDlkNC1hOThlLTRkMmJmYTc1OWQ5MlwvZGRlNm5rci1iMmQyOTExMi01N2NmLTQwNTctOWQwOC1jNmM0NDMzYjMyNWIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.MTmZFI6HhG4U5GEYDWKZCD4q_ijqwt_z4z5F2-lYbaI)
-![Cores](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dd76739-02bc-49d4-a98e-4d2bfa759d92/dde6nle-e20516e4-5871-4f55-8a9c-3bc2563b33df.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkZDc2NzM5LTAyYmMtNDlkNC1hOThlLTRkMmJmYTc1OWQ5MlwvZGRlNm5sZS1lMjA1MTZlNC01ODcxLTRmNTUtOGE5Yy0zYmMyNTYzYjMzZGYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BaCKjM4o5nBlt2wDccPRsXE_4rKHkoPm6eUQOeaLpdk)
-![Missions](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dd76739-02bc-49d4-a98e-4d2bfa759d92/dde6nln-1e7cd32e-c86a-415b-bfb8-01a3c721f4c2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkZDc2NzM5LTAyYmMtNDlkNC1hOThlLTRkMmJmYTc1OWQ5MlwvZGRlNm5sbi0xZTdjZDMyZS1jODZhLTQxNWItYmZiOC0wMWEzYzcyMWY0YzIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WnP7pY4u2TzXuqudPRrJheKjuqBQSvuKkVUJhm5xl1k)
-![Rockets](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dd76739-02bc-49d4-a98e-4d2bfa759d92/dde6nl5-3ca59621-75f9-4855-afa5-13f3983b4b7c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkZDc2NzM5LTAyYmMtNDlkNC1hOThlLTRkMmJmYTc1OWQ5MlwvZGRlNm5sNS0zY2E1OTYyMS03NWY5LTQ4NTUtYWZhNS0xM2YzOTgzYjRiN2MucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.qTiA2J26Zj2lJHOGIKYKo43DGi4S2MLDxXoaUfHhfsg)
-
-## Task 3 
-Consists of 4 pages:
-- Home(Latest & upcoming launch)
-- Upcoming Launches
-- Past Launches
-- All launches
-
-## Task 4
-Consists of 4 pages:
-- Home(Latest & upcoming launch)
-- Launches
-- Missions
-- Rockets
-- Core
-
-#### Features:
-- Upcoming and past launches are still available.(Implemented through filters)
-- Refresh button to check for updates
-
-![Screenshot 2](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dd76739-02bc-49d4-a98e-4d2bfa759d92/dde6onz-f7bd3d46-7883-4878-b19a-05c8065993aa.png/v1/fill/w_1280,h_601,q_80,strp/screenshot_10_by_airiadne_dde6onz-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAxIiwicGF0aCI6IlwvZlwvMWRkNzY3MzktMDJiYy00OWQ0LWE5OGUtNGQyYmZhNzU5ZDkyXC9kZGU2b256LWY3YmQzZDQ2LTc4ODMtNDg3OC1iMTlhLTA1YzgwNjU5OTNhYS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.QfDK6aGJp1cAIpjUjiMEsnmGrNUfFbNcQ9lSXeFrpYo)
-![Screenshot1](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dd76739-02bc-49d4-a98e-4d2bfa759d92/dde6oo6-1a875f6d-8595-4d61-9db5-c96313d7df75.png/v1/fill/w_1280,h_617,strp/screenshot_9_by_airiadne_dde6oo6-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjE3IiwicGF0aCI6IlwvZlwvMWRkNzY3MzktMDJiYy00OWQ0LWE5OGUtNGQyYmZhNzU5ZDkyXC9kZGU2b282LTFhODc1ZjZkLTg1OTUtNGQ2MS05ZGI1LWM5NjMxM2Q3ZGY3NS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.nv1rUM62SF_NsVrxAE9zRz2Iq8gQozLqMG1QTBaM8ks)
-
-[Live Demo](http://spacex-web-api.herokuapp.com/)
+Distributed under the MIT License. See `LICENSE` for more information.
